@@ -1,1 +1,135 @@
+#include<stdio.h>
+#include<conio.h>
+#include<ctype.h>
+#include<stdlib.h>
+#include<stdbool.h>
+
+void  sebelum (int data[],int n){
+for(int i=0;i<n;++i){
+    printf("%d ",data[i]);
+}
+printf("\n");
+}
+void datainputan(int data[],int n){
+     printf("masukkan nilai: ");
+for(int i=0;i<n;++i){
+    scanf("%d",&data[i]);
+}
+printf("\n");
+
+}
+void swab(int *a, int *b)
+{
+    int temp;
+   temp=*a;
+    *a = *b;
+    *b = temp;
+}
+void selektion_sort(int data[],int n){ // untuk sorting selection
+    for(int i=0;i<n-1;i++){
+        int min_idx = i;
+        for(int y=i+1;y<n;y++){
+            if(data[y]<data[min_idx])
+                min_idx = y;
+        }
+        swab(&data[min_idx],&data[i]);
+    }
+}
+void insertion_sort(int data[],int n){// untuk sorting insertion
+
+  for (int i = 0; i <= n; i++){
+    int j = i;
+    while(j > 0 && data[j-1] > data[j]){
+       int temp = data[j];
+      data[j] = data[j-1];
+      data[j-1] = temp;
+      j--;
+    }
+  }
+}
+
+void bubble_sort(int data[],int n){// untung sorting bubble sort
+for(int q=0;q<n;q++){
+    for(int w=n-1;w>=q;w--){
+        if(data[w]<data[w-1]){
+        swab(&data[w],&data[w-1]);//karna di panjang dengan edres*  harus juga di pancing menggunakan &
+        }
+    }
+  }
+}
+
+void printdata(int data[],int n){
+for(int i=0;i<n;++i){
+    printf("%d ",data[i]);
+}
+printf("\n");
+}
+
+int main(){
+    int temp;
+    int pilih;
+    int size;
+    int arr[100];
+    home:
+        system("cls");
+        printf("==metode-metode sorting==\n");
+printf("1.bubble sort\n");
+printf("2.selection sort\n");
+printf("3.insertion sort\n");
+printf("masukkan nomor urut: \n");
+scanf("%d",&pilih);
+switch(pilih)
+{
+    case 1:
+        system("cls");
+        printf("--metode bubble sort--\n");
+        printf("===========================\n");
+        printf("masukkan berapa angka: ");
+        scanf("%d",&size);
+        datainputan(arr,size);
+        printf("\nbefore:\n");
+        sebelum(arr, size);
+        bubble_sort(arr , size);
+        printf("\nafter:\n");
+        printdata(arr , size);
+    printf("tekan sembarang untuk keluar\n");
+    getch();
+    goto home;
+        break;
+    case 2:
+        system("cls");
+        printf("--metode selection sort--\n");
+        printf("===========================\n");
+        printf("masukkan berapa angka: ");
+        scanf("%d",&size);
+        datainputan(arr,size);
+        printf("\nbefore:\n");
+        sebelum(arr, size);
+        selektion_sort(arr , size);
+        printf("\nafter:\n");
+        printdata(arr , size);
+        printf("tekan sembarang untuk keluar\n");
+        getch();
+        goto home;
+    break;
+    case 3:
+        system("cls");
+        printf("--metode insertion sort--\n");
+        printf("===========================\n");
+        printf("masukkan berapa angka: ");
+        scanf("%d",&size);
+        datainputan(arr,size);
+        printf("\nbefore:\n");
+        sebelum(arr, size);
+        insertion_sort(arr , size);
+        printf("\nafter:\n");
+        printdata(arr , size);
+           printf("tekan sembarang untuk keluar\n");
+    getch();
+    goto home;
+    break;
+}
+}
+
+
 
