@@ -1,6 +1,6 @@
 <h1><li><a href="#tujuan">tujuan sorting</a></li></h1>
 <h1><li><a href="#sorting">jenis-jenis sorting</a></li></h1>
-
+</br></br></br></br></br></br>
 <h1 id="tujuan">apa tujuan sorting</h1>
 <p>-untuk mengurutkan data yang tidak teratur terutama untuk bertipe data numerik atau karakter</p>
 <h1>banyak cara untuk mensorting antara lain</h1>
