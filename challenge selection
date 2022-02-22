@@ -1,0 +1,51 @@
+#include<stdio.h>
+#include<conio.h>
+#include<ctype.h>
+#include<stdlib.h>
+#include<stdbool.h>
+
+void sebelum(int data[],int n){
+for(int i=0;i<n;++i){
+    printf("%d ",data[i]);
+}
+}
+void swab(int *a, int *b)
+{
+    int temp;
+   temp=*a;
+    *a = *b;
+    *b = temp;
+}
+void selektionsort(int data[],int n){
+    for(int i=0;i<n-1;i++){
+        int min_idx = i;
+        for(int y=i+1;y<n;y++){
+            if(data[y]<data[min_idx])
+                min_idx = y;
+        }
+        swab(&data[min_idx],&data[i]);
+    }
+}
+
+void printdata(int data[],int n){
+for(int i=0;i<n;++i){
+    printf("%d ",data[i]);
+}
+printf("\n");
+}
+
+int main()
+{
+    int arr[]={23,67,89,5,45,20,15,27};
+    int size=sizeof(arr)/sizeof(arr[0]);
+    printf("nama: bileam mangalla\n");
+    puts("nim: 672021056");
+    puts("soal genap");
+    printf("\n\nbefore:\n");
+    sebelum(arr , size);
+    selektionsort(arr , size);
+    printf("\nafter:\n");
+    printdata(arr , size);
+
+}
+
